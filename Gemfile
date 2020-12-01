@@ -30,6 +30,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rspotify'
 
+gem "jwt", "~> 2.2"
+
 gem 'active_model_serializers'
 
 #Genius gem
