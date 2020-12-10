@@ -1,6 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
-        def login
-            byebug
+        def create
             user = User.find_by(email: params[:email])
             if user && user.authenticate(params[:password])
                 token = encode_token(user.id)
@@ -10,10 +9,11 @@ class Api::V1::SessionsController < ApplicationController
             end
         end
       
+
         def get_current_user
-            byebug
+            # render json: {user: UserSerializer.new(logged_in_user)}
             user = session_user
-            if user
+            if logged_in_user
                 token = encode_token(user.id)
                 render json: {user: UserSerializer.new(user), token: token}
             else
