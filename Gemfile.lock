@@ -216,6 +216,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   genius (~> 0.1.1)
+  jwt (~> 2.2)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

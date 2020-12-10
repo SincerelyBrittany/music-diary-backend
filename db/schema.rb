@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_000109) do
     t.string "image"
     t.string "preview"
     t.string "spotify_id"
+    t.string "lyrics"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
