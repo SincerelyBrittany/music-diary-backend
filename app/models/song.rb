@@ -4,12 +4,14 @@ class Song < ApplicationRecord
     
 
     def self.new_from_spotify_song(spotify_song)
+        lyric = Genius::Song.search(spotify_song.name).first.url
         Song.new(
           spotify_id: spotify_song.id,
           name: spotify_song.name,
           artist: spotify_song.artists[0].name,
           image: spotify_song.album.images[0]["url"],
-          preview: spotify_song.preview_url
+          preview: spotify_song.preview_url,
+          lyrics: lyric
         )
     end
 
