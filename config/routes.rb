@@ -12,6 +12,7 @@
     namespace :api do
       namespace :v1 do
         resources :users
+        resources :entries
         resources :songs do
           collection do
             post :search
