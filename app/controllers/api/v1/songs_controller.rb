@@ -14,8 +14,18 @@ class Api::V1::SongsController < ApplicationController
     end
 
     def create
-      byebug
+      @song = Song.new(song_params)
+      if @song.save
+          render json: @song
+      else
+          render json: { errors: user.errors.full_messages.to_sentence} 
+      end
     end 
 
+
+    private 
+    def song_params
+      params.require(:song).permit(:name, :artist, :image, :preview, :spotify_id, :lyrics)
+    end
 
 end
