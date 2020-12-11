@@ -13,5 +13,9 @@ class Api::V1::SongsController < ApplicationController
       # render json: { songs: SongSerializer.new(@songs) }
     end
 
+    def create
+      byebug
+    end 
+
 
 end
