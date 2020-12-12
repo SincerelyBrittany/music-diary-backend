@@ -5,4 +5,14 @@ class Entry < ApplicationRecord
 
     validates :date, presence: true
     validates :description, presence: true
+
+    # validates_uniqueness_of :user_id, :scope => :song_id
+
+    def update_date
+        date.strftime("%A, %b %e, %Y")
+    end
+
+    def time_updated
+        self.time.strftime("%I:%M:%S %p")
+     end
 end
