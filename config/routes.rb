@@ -9,6 +9,7 @@
   post "/api/v1/signup", to: "api/v1/users#create"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
   post "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
+  post "/api/v1/get_user_entries", to: "api/v1/entries#get_user_entries"
     namespace :api do
       namespace :v1 do
         resources :users
