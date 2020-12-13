@@ -13,7 +13,11 @@
     namespace :api do
       namespace :v1 do
         resources :users
-        resources :entries
+        resources :entries do 
+          collection do
+            resources :comments
+          end 
+        end 
         resources :songs do
           collection do
             post :search
