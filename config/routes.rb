@@ -14,9 +14,7 @@
       namespace :v1 do
         resources :users
         resources :entries do 
-          collection do
             resources :comments
-          end 
         end 
         resources :songs do
           collection do

@@ -1,7 +1,8 @@
 class Api::V1::CommentsController < ApplicationController
 
     def index
-        byebug
+        @comments = Entry.find(params[:entry_id]).comments
+        render json: @comments
     end 
 
     def create
