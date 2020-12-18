@@ -8,7 +8,16 @@ class Api::V1::CommentsController < ApplicationController
     end 
 
     def create
+        user = User.find_by(params[:user_id])
+        entry = Entry.find(params[:data][:entry_id])
+        content = params[:data][:content]
+        @comment = Comment.new(user: user, entry: entry, content: content)
         byebug
+        if @comment.save
+            render json: CommentSerializer.new(@comment).to_serialized_json
+           else 
+            render json: { errors: @comment.errors.full_messages.to_sentence} 
+        end 
     end 
 
     def show
