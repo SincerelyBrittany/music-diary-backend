@@ -6,7 +6,7 @@ class Entry < ApplicationRecord
     validates :date, presence: true
     validates :description, presence: true
 
-    validates_uniqueness_of :user_id, :scope => :date
+    validates_uniqueness_of :date, :scope => :user_id
 
     def update_date
         date.strftime("%A, %b %e, %Y")
